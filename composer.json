@@ -1,0 +1,24 @@
+{
+    "name": "the-coding-owl/owl-dav",
+    "description": "An extension for TYPO3 that enables DAV functionality using sabre dav",
+    "type": "typo3-cms-extension",
+    "require": {
+        "sabre/dav": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "TheCodingOwl\\OwlDav\\": "Classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kevin Ditscheid",
+            "email": "kevin@the-coding-owl.de"
+        }
+    ],
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "owl-dav"
+        }
+    }
+}

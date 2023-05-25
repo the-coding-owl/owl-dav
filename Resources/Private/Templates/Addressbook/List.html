@@ -1,0 +1,33 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+    <f:section name="main">
+        <div class="btn-group">
+            <f:link.action action="new" class="btn btn-default"><core:icon identifier="actions-plus" /></f:link.action>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Addressbook ID</th>
+                    <th>Title</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <f:for each="{addressbooks}" as="addressbook">
+                    <tr>
+                        <td>{addressbook.uid}</td>
+                        <td>{addressbook.title}</td>
+                        <td><f:link.action action="show" arguments="{addressbook: addressbook}"><core.icon identifier="actions-open" /></f:link.action></td>
+                        <td><f:link.action action="delete" arguments="{addressbook: addressbook}"><core.icon identifier="actions-delete" /></f:link.action></td>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </f:section>
+</html>

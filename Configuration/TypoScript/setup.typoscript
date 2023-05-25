@@ -1,0 +1,13 @@
+modules.tx_owldav {
+    view {
+        templateRootPaths {
+            0 = EXT:owl-dav/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:owl-dav/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:owl-dav/Resources/Private/Layouts/
+        }
+    }
+}
