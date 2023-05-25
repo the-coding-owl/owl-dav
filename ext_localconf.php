@@ -1,7 +1,7 @@
 <?php
 
-use TheCodingOwl\OwlDav\FieldTypes\PhoneFieldType\PhoneFieldType;
-use TheCodingOwl\OwlDav\TCA\FieldTypeRegistry;
+use TheCodingOwl\OwlDav\FieldTypes\FieldTypeRegistry;
+use TheCodingOwl\OwlDav\FieldTypes\PhoneFieldType;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(static function () {

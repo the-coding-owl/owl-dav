@@ -1,6 +1,6 @@
 <?php
 
-namespace TheCodingOwl\OwlDav\FieldTypes\PhoneFieldType;
+namespace TheCodingOwl\OwlDav\FieldTypes;
 
 use TheCodingOwl\OwlDav\FieldTypes\FieldTypeInterface;
 
