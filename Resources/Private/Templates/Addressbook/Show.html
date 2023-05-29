@@ -1,0 +1,56 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+    <f:section name="main">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="btn-group">
+                    <f:link.action action="list" class="btn btn-default" title="Back to list"><core:icon identifier="actions-close" /></f:link.action>
+                    <f:link.action action="edit" class="btn btn-default" arguments="{addressbook: addressbook}" title="Edit addressbook">
+                        <core:icon identifier="actions-open" />
+                    </f:link.action>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="card-title">{addressbook.title}</h1>
+                                <div class="card-text">
+                                    <p>{addressbook.description -> f:format.nl2br()}</p>
+                                    <p><strong>Supported address data:</strong> {addressbook.supportedAddressData}</p>
+                                    <p><strong>Max resource size:</strong> {addressbook.maxResourceSize}</p>
+                                </div>
+                                <f:link.action action="new" controller="Address" arguments="{addressbook: addressbook}" class="btn btn-default">Add new address</f:link.action>
+                            </div>
+                        </div>
+                    </div>
+                    <f:for each="{addressbook.addresses}" as="address">
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card">
+                                <f:if condition="{address.image}">
+                                    <f:image image="{address.image}" class="card-img-top" />
+                                </f:if>
+                                <div class="card-body">
+                                    <div class="card-title">{address.name}</div>
+                                    <div class="card-text"></div>
+                                    <f:link.action action="edit" controller="Address" arguments="{address: address}" class="btn btn-default">
+                                        <core:icon identifier="actions-open" />
+                                    </f:link.action>
+                                    <f:link.action action="delete" controller="Address" arguments="{address: address}" class="btn btn-danger">
+                                        <core:icon identifier="actions-delete" />
+                                    </f:link.action>
+                                </div>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>

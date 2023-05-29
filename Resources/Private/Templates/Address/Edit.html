@@ -6,8 +6,8 @@
     <f:layout name="Default" />
 
     <f:section name="main">
-        <f:form action="create" name="addressbook" object="{addressbook}">
-            <f:render partial="Addressbook/FormFields" section="main" />
+        <f:form action="update" name="address" object="{address}">
+            <f:render partial="Address/FormFields" section="main" arguments="{addressbook: address.addressbook}" />
         </f:form>
     </f:section>
 </html>

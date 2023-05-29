@@ -1,7 +1,7 @@
 <?php
 
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'the-coding-owl/owl-dav',
     'description' => 'An extension for TYPO3 that enables DAV functionality using sabre dav',
     'category' => 'be',
@@ -14,13 +14,14 @@ $EM_CONF[$_EXTKEY] = array(
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'version' => '0.0.1',
-    'constraints' => array(
-        'depends' => array(
-            'typo3' => '12.4'
-        ),
-        'conflicts' => array(
-        ),
-        'suggests' => array(
-        )
-    )
-);
+    'constraints' => [
+        'depends' => [
+            'typo3' => '12.4-12.4.99'
+        ]
+    ],
+    'autoload' => [
+        'psr-4' => [
+            'TheCodingOwl\\OwlDav\\' => 'Classes/',
+        ]
+    ],
+];

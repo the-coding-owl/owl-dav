@@ -45,4 +45,23 @@ class AddressbookController extends ActionController
         $moduleTemplate->assign('addressbook', $addressbook);
         return $moduleTemplate->renderResponse();
     }
+
+    public function editAction(Addressbook $addressbook): ResponseInterface
+    {
+        $moduleTemplate = $this->moduleTemplalteFactory->create($this->request);
+        $moduleTemplate->assign('addressbook', $addressbook);
+        return $moduleTemplate->renderResponse();
+    }
+
+    public function updateAction(Addressbook $addressbook): ResponseInterface
+    {
+        $this->addressbookRepository->update($addressbook);
+        return $this->redirect('show', NULL, NULL, ['addressbook' => $addressbook]);
+    }
+
+    public function deleteAction(Addressbook $addressbook): ResponseInterface
+    {
+        $this->addressbookRepository->remove($addressbook);
+        return $this->redirect('list');
+    }
 }

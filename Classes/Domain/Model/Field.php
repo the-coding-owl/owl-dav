@@ -6,17 +6,10 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Field extends AbstractEntity
 {
-    private string $name;
-    private string $type;
-    private string $value;
-    private Address $address;
-
-    public function __construct()
-    {
-        $this->name = '';
-        $this->type = '';
-        $this->value = '';
-    }
+    protected string $name = '';
+    protected string $type = '';
+    protected string $value = '';
+    protected Address $address;
 
     public function getName(): string
     {

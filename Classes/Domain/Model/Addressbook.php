@@ -4,26 +4,30 @@ namespace TheCodingOwl\OwlDav\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 
 class Addressbook extends AbstractEntity
 {
-    private string $title;
-    private string $description;
-    private string $supportedAddressData;
-    private int $maxResourceSize;
+    protected string $title = '';
+    protected string $description = '';
+    protected string $supportedAddressData = '';
+    protected int $maxResourceSize = 0;
 
     /**
      * @var ObjectStorage<Address>
      */
-    private ObjectStorage $addresses;
-
+    #[Lazy()]
+    #[Cascade(["remove"])]
+    protected ObjectStorage $addresses;
 
     public function __construct()
     {
-        $this->title = '';
-        $this->description = '';
-        $this->supportedAddressData = '';
-        $this->maxResourceSize = 0;
+        $this->initializeObject();
+    }
+
+    public function initializeObject(): void
+    {
         $this->addresses = new ObjectStorage();
     }
 
@@ -79,6 +83,18 @@ class Addressbook extends AbstractEntity
     public function setAddresses(ObjectStorage $addresses): self
     {
         $this->addresses = $addresses;
+        return $this;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        $this->addresses->attach($address);
+        return $this;
+    }
+
+    public function removeAddress(Address $address): self
+    {
+        $this->addresses->detach($address);
         return $this;
     }
 }

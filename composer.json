@@ -2,6 +2,9 @@
     "name": "the-coding-owl/owl-dav",
     "description": "An extension for TYPO3 that enables DAV functionality using sabre dav",
     "type": "typo3-cms-extension",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
     "require": {
         "typo3/cms-core": "^12.4",
         "typo3/cms-fluid": "^12.4",
@@ -22,7 +25,7 @@
     ],
     "extra": {
         "typo3/cms": {
-            "extension-key": "owl-dav"
+            "extension-key": "owl_dav"
         }
     }
 }

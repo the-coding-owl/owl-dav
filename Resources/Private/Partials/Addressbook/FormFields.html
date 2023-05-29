@@ -1,0 +1,36 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:section name="main">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="btn-group">
+                    <button class="btn btn-default" title="Save addressbook"><core:icon identifier="actions-save" /></button>
+                    <f:link.action action="list" class="btn btn-default" title="Back to list">
+                        <core:icon identifier="actions-close" />
+                    </f:link.action>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <f:form.textfield property="title" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <f:form.textarea property="description" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">supportedAddressData</label>
+                    <f:form.textfield property="supportedAddressData" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">maxResourceSize</label>
+                    <f:form.textfield property="maxResourceSize" type="number" class="form-control" additionalAttributes="{step: 1, min: 1}" />
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>
