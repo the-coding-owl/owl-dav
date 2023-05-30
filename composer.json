@@ -10,7 +10,7 @@
         "typo3/cms-fluid": "^12.4",
         "typo3/cms-extbase": "^12.4",
         "typo3/cms-backend": "^12.4",
-        "sabre/dav": "^4.4"
+        "sabre/vobject": "^4.5"
     },
     "autoload": {
         "psr-4": {
