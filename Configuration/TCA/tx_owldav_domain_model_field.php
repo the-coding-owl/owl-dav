@@ -1,7 +1,9 @@
 <?php
 
 use TheCodingOwl\OwlDav\TCA\FieldTypeRegistry;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+$fieldTypesRegistry = GeneralUtility::makeInstance(FieldTypeRegistry::class);
 return [
     'ctrl' => [
         'crdate' => 'creation_date',
@@ -16,13 +18,10 @@ return [
         'iconfile' => 'EXT:owl_dav/Resources/Public/Icons/field.svg',
         'rootlevel' => 0,
         'title' => 'LLL:owl_dav/Resources/Private/Languages/locallang_db.xlf:tx_owldav_domain_model_field',
-        'tstamp' => 'modification_date'
+        'tstamp' => 'modification_date',
+        'type' => 'type'
     ],
-    'types' => [
-        0 => [
-            'showitem' => 'name,type,value,address'
-        ]
-    ],
+    'types' => $fieldTypesRegistry->renderTCATypes(),
     'palettes' => [],
     'columns' => [
         'name' => [

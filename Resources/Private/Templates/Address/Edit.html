@@ -8,6 +8,7 @@
     <f:section name="main">
         <f:form action="update" name="address" object="{address}">
             <f:render partial="Address/FormFields" section="main" arguments="{addressbook: address.addressbook}" />
+            <f:render partial="Field/New" section="main" arguments="{address: address, fieldOptions: fieldOptions}" />
         </f:form>
     </f:section>
 </html>

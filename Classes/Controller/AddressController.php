@@ -6,14 +6,18 @@ use Psr\Http\Message\ResponseInterface;
 use TheCodingOwl\OwlDav\Domain\Model\Address;
 use TheCodingOwl\OwlDav\Domain\Model\Addressbook;
 use TheCodingOwl\OwlDav\Domain\Repository\AddressRepository;
+use TheCodingOwl\OwlDav\FieldTypes\FieldTypeRegistry;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class AddressController extends ActionController
 {
     public function __construct(
         private readonly ModuleTemplateFactory $moduleTemplalteFactory,
-        private readonly AddressRepository $addressRepository
+        private readonly AddressRepository $addressRepository,
+        private readonly PageRenderer $pageRenderer,
+        private readonly FieldTypeRegistry $fieldTypeRegistry
     )
     {
 
@@ -36,7 +40,10 @@ class AddressController extends ActionController
     public function editAction(Address $address): ResponseInterface
     {
         $moduleTemplate = $this->moduleTemplalteFactory->create($this->request);
+        $this->pageRenderer->loadJavaScriptModule('@owl_dav/Resources/Public/JavaScript/Backend/Fields.js');
+        $fieldOptions = $this->fieldTypeRegistry->getFieldTypeOptions();
         $moduleTemplate->assign('address', $address);
+        $moduleTemplate->assign('fieldOptions', $fieldOptions);
         return $moduleTemplate->renderResponse();
     }
 

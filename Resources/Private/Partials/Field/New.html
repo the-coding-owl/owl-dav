@@ -1,0 +1,29 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:section name="main">
+        <script type="text/template" id="owl-dav-newfield-template">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    New field
+                </div>
+                <div class="panel-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <f:form.textfield name="address[{address.uid}][fields][__NEW][name]" class="form-control" value="" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <f:form.select name="address[{address.uid}][fields][__NEW][type]" options="{fieldOptions}" class="form-control"  />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Value</label>
+                        <f:form.textfield name="address[{address.uid}][fields][__NEW][value]" value="" />
+                    </div>
+                </div>
+            </div>
+        </script>
+    </f:section>
+</html>
