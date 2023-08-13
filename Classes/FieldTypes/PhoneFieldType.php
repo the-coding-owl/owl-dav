@@ -4,7 +4,13 @@ namespace TheCodingOwl\OwlDav\FieldTypes;
 
 use TheCodingOwl\OwlDav\FieldTypes\FieldTypeInterface;
 
-class PhoneFieldType implements FieldTypeInterface {
+class PhoneFieldType implements FieldTypeInterface
+{
+    public function getShowItems(): string
+    {
+        return '';
+    }
+
     public function getType(): string
     {
         return 'TEL';
@@ -17,6 +23,6 @@ class PhoneFieldType implements FieldTypeInterface {
 
     public function getAttributes(): array
     {
-        return ['type' => ['work', 'fax', 'mobile', 'home'], 'pref' => [0,1]];
+        return ['type' => ['work', 'fax', 'mobile', 'home'], 'pref' => [0, 1]];
     }
 }
